@@ -136,7 +136,7 @@ textarea[readonly] {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
+  background-color: #6365dd;
   color: white;
 }
 .btn-primary:hover {
@@ -165,7 +165,6 @@ textarea[readonly] {
   background-color: var(--danger-color);
   color: white;
   margin-top: -24px;
-  margin-bottom: 16px;
 }
 .btn-danger:hover {
   background-color: var(--danger-hover);
@@ -211,7 +210,8 @@ textarea[readonly] {
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background-color: white;
   text-align: center;
 }
@@ -219,8 +219,18 @@ table {
 th,
 td {
   padding: 12px 14px;
-  border: 1px solid var(--border-color);
   font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
 }
 
 th {
@@ -229,6 +239,7 @@ th {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 td {
@@ -239,10 +250,60 @@ tr:hover {
   background-color: #f8fafc;
 }
 
+#testSummary {
+  margin: 0;
+  padding: 12px 14px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+#securityDemoResult {
+  margin-top: 16px;
+}
+
+#securityDemoResult p {
+  margin-bottom: 10px;
+}
+
+#securityDemoResult hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 20px 0;
+}
+
+#securityDemoResult h3 {
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+#securityDemoResult h3:not(:first-child) {
+  margin-top: 4px;
+}
+
+#algorithmSteps h3 {
+  margin-bottom: 6px;
+}
+
+#algorithmSteps p {
+  margin-bottom: 4px;
+}
+
+#algorithmSteps table {
+  margin-top: 16px;
+}
+
 @media (max-width: 600px) {
   .button-group {
     flex-direction: column;
   }
+
+  .btn {
+    width: 100%;
+  }
+}
 
   .btn {
     width: 100%;
