@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigenère Cipher - Mini Project</title>
+</head>
+<body>
+    <h1>Vigenère Cipher</h1>
+    <p>Implementasi algoritma enkripsi dan dekripsi Vigenère Cipher.</p>
+    <hr>
+    <h2>1. Enkripsi / Dekripsi</h2>
+    <label for="inputText">Plaintext / Ciphertext</label><br>
+    <textarea id="inputText" rows="4" cols="60"
+        placeholder="Masukkan teks..."></textarea>
+    <br><br>
+        <label for="inputKey">Key</label><br>
+        <input type="text" id="inputKey" placeholder="Contoh: LEMON">
+    <br><br>
+        <button onclick="handleEncrypt()">Enkripsi</button>
+        <button onclick="handleDecrypt()">Dekripsi</button>
+    <p id="errorMessage"></p>
+        <label for="outputResult">Hasil</label><br>
+        <textarea id="outputResult" rows="4" cols="60" readonly></textarea>
+    <hr>
+    <h2>2. Visualisasi Algoritma</h2>
+    <p>
+        Rumus Enkripsi:
+        <strong>C = (P + K) mod 26</strong>
+    </p>
+    <p>
+        Rumus Dekripsi:
+        <strong>P = (C - K + 26) mod 26</strong>
+    </p>
+        <button onclick="showSteps()">Tampilkan Langkah</button>
+    <div id="algorithmSteps"></div>
+    <hr>
+    <h2>3. Test Cases</h2>
+    <p>
+        Program akan membandingkan hasil algoritma dengan expected output.
+    </p>
+    <button onclick="runTestCases()">Jalankan Test Cases</button>
+    <br><br>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Plaintext</th>
+                <th>Key</th>
+                <th>Expected Ciphertext</th>
+                <th>Your Output</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="testCaseTableBody"></tbody>
+    </table>
+    <hr>
+    <h2>4. Security / Attack Feature</h2>
+    <h3>Repeated-Key / Key Reuse Demonstration</h3>
+    <p>
+        Vigenère Cipher menggunakan key yang diulang ketika plaintext
+        lebih panjang daripada key. Jika key yang sama digunakan berulang
+        pada pesan tertentu, pola dapat muncul kembali pada ciphertext.
+    </p>
+    <button onclick="runSecurityDemo()">Jalankan Security Demo</button>
+    <div id="securityDemoResult"></div>
+    <script src="app.js"></script>
+</body>
+</html>
