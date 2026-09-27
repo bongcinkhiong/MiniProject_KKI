@@ -85,17 +85,48 @@
 
       <section class="card">
         <h2>4. Security / Attack Feature</h2>
-        <h3>Repeated-Key / Key Reuse Demonstration</h3>
-        <p>
-          Vigenère Cipher menggunakan key yang diulang ketika plaintext lebih
-          panjang daripada key. Jika key yang sama digunakan berulang pada pesan
-          tertentu, pola dapat muncul kembali pada ciphertext.
+        <h3>Simulasi Kelemahan Penggunaan Ulang Kunci (Key Reuse Simulation)</h3>
+        <p class="card-subtitle">
+          Ketika satu kunci yang sama digunakan berulang kali untuk mengenkripsi lebih dari satu pesan, Vigenère Cipher kehilangan sifat keamanannya. Penyerang dapat mendeteksi pola teks yang sama dan mengeliminasi kunci dari persamaan kriptografi.
         </p>
-        <br />
-        <button class="btn btn-danger" onclick="runSecurityDemo()">
-          Jalankan Security Demo
-        </button>
-        <div id="securityDemoResult"></div>
+
+        <div class="preset-container">
+          <span class="preset-label">Pilih Contoh Kasus (Preset):</span>
+          <div class="preset-buttons">
+            <button type="button" class="btn btn-sm btn-outline" onclick="loadSecurityPreset('military')">
+              Kasus 1: Militer (ATTACK)
+            </button>
+            <button type="button" class="btn btn-sm btn-outline" onclick="loadSecurityPreset('financial')">
+              Kasus 2: Transaksi (TRANSFER)
+            </button>
+          </div>
+        </div>
+
+        <div class="grid-2-col">
+          <div class="form-group">
+            <label for="secMessage1">Pesan 1 (Plaintext 1)</label>
+            <input type="text" id="secMessage1" placeholder="Contoh: ATTACKATDAWN" value="ATTACKATDAWN" />
+          </div>
+          <div class="form-group">
+            <label for="secMessage2">Pesan 2 (Plaintext 2)</label>
+            <input type="text" id="secMessage2" placeholder="Contoh: ATTACKATDUSK" value="ATTACKATDUSK" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="secKey">Kunci Bersama (Shared Key)</label>
+          <input type="text" id="secKey" placeholder="Contoh: LEMON" value="LEMON" />
+        </div>
+
+        <div class="button-group" style="margin-bottom: 0;">
+          <button class="btn btn-danger" onclick="runSecuritySimulation()">
+            Jalankan Simulasi Key Reuse
+          </button>
+        </div>
+
+        <p id="secErrorMessage" class="error-msg" style="margin-top: 12px;"></p>
+
+        <div id="securitySimulationResult"></div>
       </section>
     </div>
 
