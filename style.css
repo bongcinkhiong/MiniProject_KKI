@@ -116,7 +116,9 @@ textarea[readonly] {
 .button-group {
   display: flex;
   gap: 12px;
-  margin-bottom: -15px;
+  /* FIX: hapus margin negatif yang menarik .error-msg naik dan
+     menumpuk di atas tombol Enkripsi/Dekripsi (lihat notes di dokumen) */
+  margin-bottom: 16px;
 }
 
 .btn {
@@ -164,7 +166,9 @@ textarea[readonly] {
 .btn-danger {
   background-color: var(--danger-color);
   color: white;
-  margin-top: -24px;
+  /* FIX: margin-top negatif lama menyebabkan tombol menempel/tumpang
+     tindih dengan input di atasnya pada bagian Security Simulation */
+  margin-top: 0;
 }
 .btn-danger:hover {
   background-color: var(--danger-hover);
@@ -173,6 +177,10 @@ textarea[readonly] {
 .error-msg {
   color: var(--danger-color);
   font-weight: 600;
+  /* FIX: tambahkan jarak dari elemen di atasnya (tombol) supaya pesan
+     error turun sedikit dan tidak tumpang tindih, sesuai semua notes
+     (Teks kosong, Key kosong, Teks/Key mengandung angka & simbol) */
+  margin-top: 12px;
   margin-bottom: 12px;
   min-height: 24px;
 }
